@@ -1,0 +1,22 @@
+name: data-analytics-services
+services:
+  postgresdb:
+    container_name: postgres
+    restart: always
+    image: postgres
+    ports:
+      - 5432:5432
+    env_file:
+      - .env_postgres
+    volumes:
+      - ./data/postgres_db:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "3g"
+    networks:
+      - backend
+
+networks:
+  backend:

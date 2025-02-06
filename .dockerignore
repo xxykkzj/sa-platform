@@ -1,0 +1,11 @@
+data/
+credentials/
+logs/
+.DS_Store
+*.pyc
+__pycache__/
+.venv/
+.vscode/
+.env
+api/volume/
+api/.env_postgres

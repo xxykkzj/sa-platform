@@ -1,0 +1,20 @@
+# GOOGLE_APPLICATION_CREDENTIALS name cannot be changed, it is required by Google Analytics as it is.
+# GA4 library reads the env variable
+GOOGLE_APPLICATION_CREDENTIALS="./credentials/service_account.json"
+GOOGLE_APPLICATION_CREDENTIALS_DATA="add value here"
+GOOGLE_ANALYTICS_PROPERTY_ID="add value here"
+
+# AWS
+# Sydney Region
+AWS_REGION_NAME="ap-southeast-2"
+AWS_ACCESS_KEY_ID="add your value"
+AWS_SECRET_ACCESS_KEY="add your value"
+
+#Database URL
+# Database url takes following format
+# eg DB_URL="postgresql+psycopg://user:password@host:port/dbname"
+# # If using Postgres, then copy the credentials values from .env_postgres
+# when api is hosted in docker container
+DB_URL="postgresql+psycopg://user:password@postgresdb:5432/data-analytics"
+# when api is hosted locally
+# DB_URL="postgresql+psycopg://user:password@localhost:5432/data-analytics"

@@ -1,0 +1,43 @@
+name: sa-community-data-analytics
+services:
+  api:
+    container_name: sac-api
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: fastapi run
+    ports:
+      - 8000:8000
+    env_file:
+      - .env  # Link to your .env file containing environment variables
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "3g"
+    networks:
+      - backend
+    depends_on:
+      - postgresdb
+
+  postgresdb:
+    container_name: postgres
+    restart: always
+    image: postgres
+    ports:
+      - 5432:5432
+    env_file:
+      - .env_postgres
+    volumes:
+      - ./data/postgres_db:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "3g"
+    networks:
+      - backend
+
+networks:
+  backend:

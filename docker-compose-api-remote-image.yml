@@ -1,0 +1,17 @@
+name: data-analytics-sa-community
+services:
+  api:
+    container_name: sac-api
+    restart: always
+    image: poozan/data-analytics-sa-community
+    ports:
+      - 8000:8000
+    env_file:
+      - .env  # Link to your .env file containing environment variables
+    volumes:
+      - ./credentials:/app/credentials
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4g"
